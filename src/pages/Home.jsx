@@ -18,6 +18,7 @@ import { MdCheckCircle } from "react-icons/all"
 import ProductCard from "../components/ProductCard"
 const Home = () => {
   const color = useColorModeValue("gray.600", "gray.300")
+  const primaryColor = useColorModeValue("primary", "#fff")
   const slides = [
     {
       image: "/images/image2.png",
@@ -27,7 +28,7 @@ const Home = () => {
     {
       image: "/images/image3.png",
       price: "4000.00",
-      color: "primary",
+      color: primaryColor,
     },
     {
       image: "/images/armchair.png",
@@ -62,6 +63,7 @@ const Home = () => {
     { name: "", price: "", amount: "103", image: "/images/redsofa.png" },
     { name: "", price: "", amount: "137", image: "/images/armchair.png" },
   ]
+  const cardBg = useColorModeValue("#fff", "#282b33")
   return (
     <VStack py={12} spacing={[5]} px={4}>
       <Heading
@@ -108,7 +110,7 @@ const Home = () => {
                 />
                 <Heading
                   size="md"
-                  bg="white"
+                  bg={cardBg}
                   p={3}
                   color={slide.color}
                   shadow="sm"

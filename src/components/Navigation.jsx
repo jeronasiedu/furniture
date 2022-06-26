@@ -77,7 +77,10 @@ const Navigation = () => {
                     icon={link.icon}
                     variant={isActive ? "solid" : "ghost"}
                   />
-                  <Text color={isActive ? "primary" : navColor}>
+                  <Text
+                    color={isActive ? "primary" : navColor}
+                    fontWeight={isActive ? "semibold" : "normal"}
+                  >
                     {link.text}
                   </Text>
                 </VStack>
