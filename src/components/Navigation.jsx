@@ -43,7 +43,9 @@ const Navigation = () => {
     <>
       <Show above="md">
         <HStack px={4} py={2} zIndex={20}>
-          <Heading size="md">Comfort</Heading>
+          <Heading size="md" className="logo">
+            ComFort
+          </Heading>
           <Spacer />
           <HStack spacing={4}>
             {links.map((link, index) => (

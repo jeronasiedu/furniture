@@ -8,9 +8,14 @@ import {
   Center,
   Stack,
   HStack,
+  Button,
+  SimpleGrid,
+  useMediaQuery,
 } from "@chakra-ui/react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay } from "swiper"
+import { MdCheckCircle } from "react-icons/all"
+import ProductCard from "../components/ProductCard"
 const Home = () => {
   const color = useColorModeValue("gray.600", "gray.300")
   const slides = [
@@ -30,8 +35,35 @@ const Home = () => {
       color,
     },
   ]
+  const smallImages = [
+    {
+      image: "/images/image2.png",
+      alt: "random image",
+    },
+    {
+      image: "/images/image3.png",
+      alt: "random image",
+    },
+    {
+      image: "/images/image7.png",
+      alt: "random image",
+    },
+  ]
+  const [large] = useMediaQuery("(min-width: 980px)")
+  const products = [
+    { name: "", price: "", amount: "137", image: "/images/image3.png" },
+    { name: "", price: "", amount: "166", image: "/images/image2.png" },
+    { name: "", price: "", amount: "106", image: "/images/image3.png" },
+    { name: "", price: "", amount: "187", image: "/images/image4.png" },
+    { name: "", price: "", amount: "125", image: "/images/image5.png" },
+    { name: "", price: "", amount: "129", image: "/images/image6.png" },
+    { name: "", price: "", amount: "159", image: "/images/image7.png" },
+    { name: "", price: "", amount: "197", image: "/images/armchair2.png" },
+    { name: "", price: "", amount: "103", image: "/images/redsofa.png" },
+    { name: "", price: "", amount: "137", image: "/images/armchair.png" },
+  ]
   return (
-    <VStack py={12} spacing={[5]} px={3}>
+    <VStack py={12} spacing={[5]} px={4}>
       <Heading
         textTransform="capitalize"
         size="2xl"
@@ -41,7 +73,6 @@ const Home = () => {
         Make your interior more Minimalistic
       </Heading>
       <Text fontSize="xl" color={color}>
-        {" "}
         Browser,Choose & Order. Very Simple
       </Text>
       <Box w="full">
@@ -90,10 +121,78 @@ const Home = () => {
           ))}
         </Swiper>
       </Box>
-      <Stack direction={["column", "row"]}>
-        <HStack></HStack>
-        <VStack></VStack>
+      <Stack direction={["column", "row"]} py={8} spacing={5}>
+        <HStack w="full" spacing={3}>
+          <VStack flex="1">
+            {smallImages.map((item, index) => (
+              <Center
+                key={index}
+                w="20"
+                h="20"
+                bg="whitesmoke"
+                rounded="md"
+                p={2}
+                shadow="sm"
+              >
+                <Image src={item.image} alt={item.alt} />
+              </Center>
+            ))}
+          </VStack>
+          <Image
+            src="/images/image6.png"
+            alt="image of a chair"
+            w={["70%", "80%"]}
+          />
+        </HStack>
+        <Box w="full">
+          <VStack spacing={5} maxW="md" mx="auto">
+            <Heading siz="md">Comfortable sofa</Heading>
+            <Text fontSize="lg" textAlign={["center", "left"]}>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni
+              doloribus recusandae dignissimos ipsa iure, reiciendis laborum
+            </Text>
+            <Button colorScheme="blue" alignSelf={[null, "flex-start"]}>
+              Read more
+            </Button>
+          </VStack>
+        </Box>
       </Stack>
+      <VStack pb="16">
+        <Heading
+          textTransform="capitalize"
+          size="xl"
+          maxW="2xl"
+          textAlign="center"
+        >
+          A huge collection of furniture products for your interior.
+        </Heading>
+        <Text fontSize="lg" color={color} maxW="2xl" textAlign="center">
+          If you have the experience of 10 years in an industry no apostrophe is
+          needed, if you don't have 10 years of experience no apostrophe is
+          needed.
+        </Text>
+      </VStack>
+      {large ? (
+        <SimpleGrid minChildWidth="200px" w="full" spacing="4">
+          {products.map((item, index) => (
+            <ProductCard key={index} {...item} />
+          ))}
+        </SimpleGrid>
+      ) : (
+        <HStack
+          alignSelf="flex-start"
+          spacing={4}
+          w="full"
+          overflowX="auto"
+          scrollSnapType="x"
+          className="product-card-container"
+          pb={16}
+        >
+          {products.map((item, index) => (
+            <ProductCard key={index} {...item} />
+          ))}
+        </HStack>
+      )}
     </VStack>
   )
 }
