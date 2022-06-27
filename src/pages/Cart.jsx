@@ -50,7 +50,7 @@ const Cart = () => {
         >
           <Center p={3} w="8rem" h="full" bg={imageBg} rounded="md" shadow="sm">
             <Image
-              src="/images/redsofa.png"
+              src="/images/image4.png"
               alt="red sofa"
               w="full"
               objectFit="cover"
