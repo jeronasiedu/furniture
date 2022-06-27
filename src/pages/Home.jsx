@@ -98,6 +98,7 @@ const Home = () => {
           loop={true}
           autoplay={{
             delay: 1200,
+            disableOnInteraction: false,
           }}
           grabCursor={true}
           modules={[Autoplay]}
