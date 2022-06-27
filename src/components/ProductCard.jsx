@@ -9,9 +9,14 @@ import {
   Flex,
 } from "@chakra-ui/react"
 import { BsHeart, BsBag } from "react-icons/all"
+import { useState } from "react"
 const ProductCard = ({ image, amount }) => {
   const cardBg = useColorModeValue("#fff", "#282b33")
   const textColor = useColorModeValue("gray.600", "gray.300")
+  const [isLiked, setIsLiked] = useState(false)
+  const handleLike = () => {
+    setIsLiked(!isLiked)
+  }
   return (
     <Box scrollSnapAlign="center">
       <VStack
@@ -23,7 +28,12 @@ const ProductCard = ({ image, amount }) => {
         userSelect="none"
         maxW="17rem"
       >
-        <IconButton icon={<BsHeart />} isRound alignSelf="flex-end" />
+        <IconButton
+          icon={<BsHeart color={isLiked ? "red" : "black"} />}
+          isRound
+          alignSelf="flex-end"
+          onClick={handleLike}
+        />
         <Center w="48" p="2" h="10rem">
           <Image src={image} alt="table" objectFit="cover" w="80%" />
         </Center>
@@ -42,7 +52,7 @@ const ProductCard = ({ image, amount }) => {
           <Text fontWeight="semibold" color="#f8ae2c">
             ${amount}
           </Text>
-          <IconButton icon={<BsBag />} isRound />
+          <IconButton icon={<BsBag color="#2d53fc" />} isRound />
         </Flex>
       </VStack>
     </Box>

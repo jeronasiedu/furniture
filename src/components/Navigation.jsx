@@ -9,8 +9,16 @@ import {
   Text,
   useColorModeValue,
   useColorMode,
+  Flex,
 } from "@chakra-ui/react"
-import { GoHome, BiHeart, BsCart3, BsPerson } from "react-icons/all"
+import {
+  GoHome,
+  BiHeart,
+  BsCart3,
+  BsPerson,
+  BiSun,
+  BiMoon,
+} from "react-icons/all"
 import { Link, NavLink } from "react-router-dom"
 
 const Navigation = () => {
@@ -39,6 +47,7 @@ const Navigation = () => {
   const { toggleColorMode } = useColorMode()
   const navBg = useColorModeValue("#fff", "#282b33")
   const navColor = useColorModeValue("gray.600", "gray.300")
+  const themeIcon = useColorModeValue(<BiMoon size={20} />, <BiSun size={20} />)
   return (
     <>
       <Show above="md">
@@ -55,9 +64,16 @@ const Navigation = () => {
             ))}
           </HStack>
           <Spacer />
+          <IconButton icon={themeIcon} onClick={toggleColorMode} isRound />
         </HStack>
       </Show>
       <Show below="md">
+        <Flex justify="space-between" align="center" px={4} py={2}>
+          <Heading size="md" className="logo">
+            ComFort
+          </Heading>
+          <IconButton icon={themeIcon} onClick={toggleColorMode} isRound />
+        </Flex>
         <HStack
           bg={navBg}
           pos="fixed"
