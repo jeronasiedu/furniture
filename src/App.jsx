@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <Navigation />
-      <AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
         <Routes location={location}>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
