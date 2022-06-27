@@ -13,10 +13,12 @@ import { useState } from "react"
 const ProductCard = ({ image, amount }) => {
   const cardBg = useColorModeValue("#fff", "#282b33")
   const textColor = useColorModeValue("gray.600", "gray.300")
+  const heartColor = useColorModeValue("gray.700", "gray.100")
   const [isLiked, setIsLiked] = useState(false)
   const handleLike = () => {
     setIsLiked(!isLiked)
   }
+
   return (
     <Box scrollSnapAlign="center">
       <VStack
@@ -29,7 +31,7 @@ const ProductCard = ({ image, amount }) => {
         maxW="17rem"
       >
         <IconButton
-          icon={<BsHeart color={isLiked ? "red" : "black"} />}
+          icon={<BsHeart color={isLiked ? "red" : heartColor} />}
           isRound
           alignSelf="flex-end"
           onClick={handleLike}

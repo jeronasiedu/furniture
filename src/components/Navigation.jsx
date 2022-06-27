@@ -10,6 +10,7 @@ import {
   useColorModeValue,
   useColorMode,
   Flex,
+  Button,
 } from "@chakra-ui/react"
 import {
   GoHome,
@@ -38,12 +39,8 @@ const Navigation = () => {
       url: "/cart",
       icon: <BsCart3 size={22} />,
     },
-    {
-      text: "Profile",
-      url: "/profile",
-      icon: <BsPerson size={22} />,
-    },
   ]
+
   const { toggleColorMode } = useColorMode()
   const navBg = useColorModeValue("#fff", "#282b33")
   const navColor = useColorModeValue("gray.600", "gray.300")
@@ -86,7 +83,7 @@ const Navigation = () => {
           zIndex={20}
         >
           {links.map((link, index) => (
-            <NavLink to={link.url}>
+            <NavLink to={link.url} key={index}>
               {({ isActive }) => (
                 <VStack key={index} spacing="0">
                   <IconButton

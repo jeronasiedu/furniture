@@ -1,10 +1,21 @@
-import { Heading } from "@chakra-ui/react"
-
+import { Heading, VStack } from "@chakra-ui/react"
+import { motion } from "framer-motion"
 const Cart = () => {
   return (
-    <Heading textAlign="center" px={3}>
-      Cart page coming soon
-    </Heading>
+    <VStack
+      as={motion.div}
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+      }}
+      exit={{
+        opacity: 0,
+      }}
+    >
+      <Heading textAlign="center">Cart page coming soon</Heading>
+    </VStack>
   )
 }
 

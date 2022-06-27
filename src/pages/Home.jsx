@@ -14,8 +14,8 @@ import {
 } from "@chakra-ui/react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay } from "swiper"
-import { MdCheckCircle } from "react-icons/all"
 import ProductCard from "../components/ProductCard"
+import { motion } from "framer-motion"
 const Home = () => {
   const color = useColorModeValue("gray.600", "gray.300")
   const primaryColor = useColorModeValue("primary", "#fff")
@@ -65,7 +65,21 @@ const Home = () => {
   ]
   const cardBg = useColorModeValue("#fff", "#282b33")
   return (
-    <VStack py={12} spacing={[5]} px={4}>
+    <VStack
+      py={12}
+      spacing={[5]}
+      px={4}
+      as={motion.div}
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+      }}
+      exit={{
+        opacity: 0,
+      }}
+    >
       <Heading
         textTransform="capitalize"
         size="2xl"
