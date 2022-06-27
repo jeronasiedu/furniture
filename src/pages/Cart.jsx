@@ -9,10 +9,15 @@ import {
   Center,
   Spacer,
   IconButton,
+  useColorModeValue,
 } from "@chakra-ui/react"
 import { motion } from "framer-motion"
 import { BiMinus, BiPlus } from "react-icons/all"
 const Cart = () => {
+  const cardBg = useColorModeValue("#fff", "#282b33")
+  const imageBg = useColorModeValue("gray.50", "blackAlpha.100")
+  const buttonsBg = useColorModeValue("gray.300", "blackAlpha.300")
+  const textColor = useColorModeValue("#cfd0d1", "#838589")
   return (
     <VStack
       as={motion.div}
@@ -27,21 +32,23 @@ const Cart = () => {
       }}
       px={4}
     >
-      {/* <Heading textAlign="center">Cart page coming soon</Heading> */}
+      <Show above="md">
+        <Heading textAlign="center">Cart page coming soon</Heading>
+      </Show>
       <Show below="md">
         <Heading alignSelf="start" mb={4}>
           Shopping Cart
         </Heading>
         <HStack
           w="full"
-          bg="whitesmoke"
+          bg={cardBg}
           p={2}
           shadow="md"
           alignItems="flex-start"
           h="8rem"
           rounded="md"
         >
-          <Center p={3} w="8rem" h="full" bg="gray.50" rounded="md" shadow="sm">
+          <Center p={3} w="8rem" h="full" bg={imageBg} rounded="md" shadow="sm">
             <Image
               src="/images/redsofa.png"
               alt="red sofa"
@@ -50,16 +57,14 @@ const Cart = () => {
             />
           </Center>
           <VStack alignItems="flex-start" h="full" w="full">
-            <Heading size="md" color="#32334c">
-              Levi Armchair
-            </Heading>
-            <Text color="gray.500">Cultured white</Text>
+            <Heading size="md">Levi Armchair</Heading>
+            <Text color={textColor}>Cultured white</Text>
             <Spacer />
             <HStack justifyContent="space-between" w="full">
-              <Text fontWeight="semibold" color="#32334c" fontSize="xl">
+              <Text fontWeight="semibold" fontSize="xl">
                 $38.99
               </Text>
-              <HStack bg="gray.300" px={2} py={1} rounded="full">
+              <HStack bg={buttonsBg} px={2} py={1} rounded="full">
                 <IconButton size="sm" icon={<BiMinus />} isRound />
                 <Text fontSize="lg">4</Text>
                 <IconButton size="sm" icon={<BiPlus />} isRound />

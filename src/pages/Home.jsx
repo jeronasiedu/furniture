@@ -31,7 +31,7 @@ const Home = () => {
       color: primaryColor,
     },
     {
-      image: "/images/armchair.png",
+      image: "/images/image4.png",
       price: "1200.00",
       color,
     },
@@ -61,7 +61,7 @@ const Home = () => {
     { name: "", price: "", amount: "159", image: "/images/image7.png" },
     { name: "", price: "", amount: "197", image: "/images/armchair2.png" },
     { name: "", price: "", amount: "103", image: "/images/redsofa.png" },
-    { name: "", price: "", amount: "137", image: "/images/armchair.png" },
+    { name: "", price: "", amount: "137", image: "/images/image4.png" },
   ]
   const cardBg = useColorModeValue("#fff", "#282b33")
   return (
