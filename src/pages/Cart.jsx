@@ -10,14 +10,32 @@ import {
   Spacer,
   IconButton,
   useColorModeValue,
+  CloseButton,
+  Button,
 } from "@chakra-ui/react"
 import { motion } from "framer-motion"
-import { BiMinus, BiPlus } from "react-icons/all"
+import { toast } from "react-hot-toast"
+import { BiMinus, BiPlus, AiOutlineCloudDownload } from "react-icons/all"
 const Cart = () => {
   const cardBg = useColorModeValue("#fff", "#282b33")
   const imageBg = useColorModeValue("gray.50", "blackAlpha.100")
-  const buttonsBg = useColorModeValue("gray.300", "blackAlpha.300")
+  const buttonsBg = useColorModeValue("gray.200", "blackAlpha.400")
   const textColor = useColorModeValue("#cfd0d1", "#838589")
+  const testToast = () => {
+    toast.loading(
+      <>
+        <VStack w="full">
+          <Text>New update available</Text>
+          <HStack w="full" justifyContent="space-between">
+            <Button size="sm" colorScheme="blue">
+              Download
+            </Button>
+            <CloseButton onClick={() => toast.dismiss()} />
+          </HStack>
+        </VStack>
+      </>
+    )
+  }
   return (
     <VStack
       as={motion.div}
@@ -64,7 +82,13 @@ const Cart = () => {
               <Text fontWeight="semibold" fontSize="xl">
                 $38.99
               </Text>
-              <HStack bg={buttonsBg} px={2} py={1} rounded="full">
+              <HStack
+                bg={buttonsBg}
+                px={2}
+                py={1}
+                rounded="full"
+                onClick={testToast}
+              >
                 <IconButton size="sm" icon={<BiMinus />} isRound />
                 <Text fontSize="lg">4</Text>
                 <IconButton size="sm" icon={<BiPlus />} isRound />

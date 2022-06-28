@@ -8,7 +8,7 @@ import {
   Box,
   Flex,
 } from "@chakra-ui/react"
-import { BsHeart, BsBag } from "react-icons/all"
+import { BsHeart, BsHeartFill, BsBag } from "react-icons/all"
 import { useState } from "react"
 const ProductCard = ({ image, amount }) => {
   const cardBg = useColorModeValue("#fff", "#282b33")
@@ -31,10 +31,11 @@ const ProductCard = ({ image, amount }) => {
         maxW="17rem"
       >
         <IconButton
-          icon={<BsHeart color={isLiked ? "red" : heartColor} />}
+          icon={isLiked ? <BsHeartFill /> : <BsHeart />}
           isRound
           alignSelf="flex-end"
           onClick={handleLike}
+          color={isLiked ? "red" : heartColor}
         />
         <Center w="48" p="2" h="10rem">
           <Image src={image} alt="table" objectFit="cover" w="80%" />

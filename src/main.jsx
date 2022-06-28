@@ -21,7 +21,21 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   </BrowserRouter>
 )
 const updateSW = registerSW({
-  onNeedRefresh() {},
+  onNeedRefresh() {
+    toast.loading(
+      <>
+        <VStack w="full">
+          <Text>New update available</Text>
+          <HStack w="full" justifyContent="space-between">
+            <Button size="sm" colorScheme="blue" onClick={updateSW(true)}>
+              Download
+            </Button>
+            <CloseButton onClick={() => toast.dismiss()} />
+          </HStack>
+        </VStack>
+      </>
+    )
+  },
   onOfflineReady() {
     toast.success("Ready to work offline")
   },
