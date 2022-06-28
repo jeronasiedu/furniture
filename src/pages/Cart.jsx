@@ -1,25 +1,7 @@
-import { CartItem } from "./CartItem"
-import {
-  Heading,
-  VStack,
-  Show,
-  Text,
-  HStack,
-  Box,
-  Image,
-  Center,
-  Spacer,
-  IconButton,
-  useColorModeValue,
-} from "@chakra-ui/react"
+import { Heading, VStack, Show } from "@chakra-ui/react"
 import { motion } from "framer-motion"
-
+import { CartItem } from "../components"
 const Cart = () => {
-  const cardBg = useColorModeValue("#fff", "#282b33")
-  const imageBg = useColorModeValue("gray.50", "blackAlpha.100")
-  const buttonsBg = useColorModeValue("gray.200", "blackAlpha.400")
-  const textColor = useColorModeValue("#cfd0d1", "#838589")
-
   return (
     <VStack
       as={motion.div}
@@ -41,13 +23,13 @@ const Cart = () => {
         <Heading alignSelf="start" mb={4}>
           Shopping Cart
         </Heading>
-        <CartItem
-          cardBg={cardBg}
-          imageBg={imageBg}
-          textColor={textColor}
-          buttonsBg={buttonsBg}
-          testToast={testToast}
-        />
+        <VStack spacing={4} w="full" pb={24}>
+          <CartItem />
+          <CartItem />
+          <CartItem />
+          <CartItem />
+          <CartItem />
+        </VStack>
       </Show>
     </VStack>
   )

@@ -1,5 +1,21 @@
-import { BiMinus, BiPlus, AiOutlineCloudDownload } from "react-icons/all"
-export function CartItem({ cardBg, imageBg, textColor, buttonsBg, testToast }) {
+import {
+  Center,
+  Heading,
+  HStack,
+  IconButton,
+  Image,
+  Spacer,
+  Text,
+  useColorModeValue,
+  VStack,
+} from "@chakra-ui/react"
+import { BiMinus, BiPlus } from "react-icons/all"
+
+const CartItem = () => {
+  const cardBg = useColorModeValue("#fff", "#282b33")
+  const imageBg = useColorModeValue("gray.50", "blackAlpha.100")
+  const buttonsBg = useColorModeValue("gray.200", "blackAlpha.400")
+  const textColor = useColorModeValue("#cfd0d1", "#838589")
   return (
     <HStack
       w="full"
@@ -26,13 +42,7 @@ export function CartItem({ cardBg, imageBg, textColor, buttonsBg, testToast }) {
           <Text fontWeight="semibold" fontSize="xl">
             $38.99
           </Text>
-          <HStack
-            bg={buttonsBg}
-            px={2}
-            py={1}
-            rounded="full"
-            onClick={testToast}
-          >
+          <HStack bg={buttonsBg} px={2} py={1} rounded="full">
             <IconButton size="sm" icon={<BiMinus />} isRound />
             <Text fontSize="lg">4</Text>
             <IconButton size="sm" icon={<BiPlus />} isRound />
@@ -42,3 +52,5 @@ export function CartItem({ cardBg, imageBg, textColor, buttonsBg, testToast }) {
     </HStack>
   )
 }
+
+export default CartItem

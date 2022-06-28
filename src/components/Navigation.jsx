@@ -49,9 +49,7 @@ const Navigation = () => {
     <>
       <Show above="md">
         <HStack px={4} py={2} zIndex={20}>
-          <Heading size="md" className="logo">
-            ComFort
-          </Heading>
+          <Heading size="md">ComFort</Heading>
           <Spacer />
           <HStack spacing={4}>
             {links.map((link, index) => (
@@ -66,9 +64,7 @@ const Navigation = () => {
       </Show>
       <Show below="md">
         <Flex justify="space-between" align="center" px={4} py={2}>
-          <Heading size="md" className="logo">
-            ComFort
-          </Heading>
+          <Heading size="md">ComFort</Heading>
           <IconButton icon={themeIcon} onClick={toggleColorMode} isRound />
         </Flex>
         <HStack
