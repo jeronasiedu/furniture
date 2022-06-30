@@ -1,4 +1,4 @@
-import { Heading, VStack } from "@chakra-ui/react"
+import { Heading, Show, Text, VStack } from "@chakra-ui/react"
 import { motion } from "framer-motion"
 const Favorites = () => {
   return (
@@ -15,6 +15,9 @@ const Favorites = () => {
       }}
     >
       <Heading textAlign="center">Favorites page coming soon</Heading>
+      <Show below="md">
+        <Text>I just wanted to make a commit</Text>
+      </Show>
     </VStack>
   )
 }
